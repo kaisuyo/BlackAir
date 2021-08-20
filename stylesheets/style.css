@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
@@ -181,3 +182,31 @@
   margin-right: 17px;
 }
 /* end our team */
+
+/* cost */
+#cost {
+  padding-top: 95px;
+}
+.tbl {
+  margin-bottom: 40px;
+}
+.tbl h2 {
+  margin-bottom: 31px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 45px;
+}
+.tbl table {
+  margin-top: 42px;
+}
+.tbl td {
+  padding: 12px 25px 11px;
+  font-size: 15px;
+}
+.tbl th {
+  padding: 12px 25px 6px;
+}
+/* end cost */
+
+/* color */
+
+/* end color */
