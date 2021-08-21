@@ -1,6 +1,6 @@
-
 window.onload = () => {
   new WOW().init();
+  // team
   new Swiper(".mySwiper", {
     slidesPerView: 3,
     slidesPerGroup: 3,
@@ -11,48 +11,89 @@ window.onload = () => {
       prevEl: ".swiper-button-prev",
     },
   });
-
+  
   // banner
-  let list = $('.banner-item').toArray();
-  let curr = 0;
-  let next = 1;
+  // setInterval( () => {
+  //   $('#mark-banner').css('animation-delay', "1000ms");
+  // }, 8000);
+  // Params
+  let mainSliderSelector = ".main-slider",
+    interleaveOffset = 0.5;
 
-  $('#mark-banner').css('width', "100%");
-  setInterval( () => {
-    list.forEach( tag => {
-      $(tag).find("img").css("left", '0');
-    });
-    next = (curr < list.length-1)? curr+1 : 0;
-    if ($(list[next]).offset().left > 0) {
-      $(list[curr]).css('left', '-100%');
-      $(list[curr]).find("img").css('left', '50%');
-    } else {
-      $(list[curr]).css('left', '100%');
-      $(list[curr]).find("img").css('left', '-50%');
-    }
-    $(list[next]).css('left', '0');
-    curr = next;
+  // Main Slider
+  let mainSliderOptions = {
+    loop: true,
+    speed: 800,
+    autoplay: {
+      delay: 8000,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      init: function () {
+        this.autoplay.stop();
+      },
+      imagesReady: function () {
+        this.el.classList.remove("loading");
+        this.autoplay.start();
+      },
+      
+      progress: function () {
+        let swiper = this;
+        for (let i = 0; i < swiper.slides.length; i++) {
+          let slideProgress = swiper.slides[i].progress,
+            innerOffset = swiper.width * interleaveOffset,
+            innerTranslate = slideProgress * innerOffset;
+          swiper.slides[i].querySelector(".slide-bgimg").style.transform =
+            "translateX(" + innerTranslate + "px)";
+        }
+      },
+      touchStart: function () {
+        let swiper = this;
+        for (let i = 0; i < swiper.slides.length; i++) {
+          swiper.slides[i].style.transition = "";
+        }
+      },
+      setTransition: function (speed) {
+        let swiper = this;
+        for (let i = 0; i < swiper.slides.length; i++) {
+          swiper.slides[i].style.transition = speed + "ms";
+          swiper.slides[i].querySelector(".slide-bgimg").style.transition =
+            speed + "ms";
+        }
+      },
+    },
+  };
+  new Swiper(mainSliderSelector, mainSliderOptions);
 
-    $('#mark-banner').css('transition', "all linear 0s");
-    $('#mark-banner').css('width', "0");
-    setTimeout( () => {
-      $('#mark-banner').css('transition', "all linear 5s");
-      $('#mark-banner').css('width', "100%");
-    }, 10);
-  }, 5000);
+  let bannerNext = $("#banner .right");
+  let bannerPrev = $("#banner .left");
+  $("#sub-banner .right").on("click", () => {
+    bannerNext.click();
+  });
+  $("#sub-banner .left").on("click", () => {
+    bannerPrev.click();
+  });
+
+  window.onscroll = () => {
+    $('#banner .parallax').css("transform", `translateY(${window.scrollY*0.5}px)`);
+  };
+
   // end banner
 
   // our team
-  let ourTeamNext = $('#our-team .swiper-button-next');
-  let ourTeamPrev = $('#our-team .swiper-button-prev');
+  let ourTeamNext = $("#our-team .swiper-button-next");
+  let ourTeamPrev = $("#our-team .swiper-button-prev");
   ourTeamNext.css("display", "none");
   ourTeamPrev.css("display", "none");
-  $('#our-team .right').on('click', () => {
-    ourTeamNext.click()
+  $("#our-team .right").on("click", () => {
+    ourTeamNext.click();
   });
-  $('#our-team .left').on('click', () => {
-    ourTeamPrev.click()
+  $("#our-team .left").on("click", () => {
+    ourTeamPrev.click();
   });
   // ourTeamNext
   // end our team
-}
+};
