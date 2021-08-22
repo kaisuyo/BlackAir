@@ -326,13 +326,6 @@
   background-size: cover;
 }
 /* end excellence */
-
-/* portrodio */
-#portfolio {
-  padding-top: 100px;
-  padding-bottom: 35px;
-}
-/* end portrodio */
 /* validation */
 .form-control.is-invalid, .was-validated .form-control:invalid {
   border-color: white !important;
@@ -353,3 +346,48 @@
   padding-right: 36px;
 }
 /* end validation */
+
+/* portrodio */
+#portfolio {
+  padding-top: 100px;
+  padding-bottom: 11px;
+}
+#portfolio .title {
+  font-size: 54px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  margin-bottom: 40px;
+}
+#portfolio .active {
+  background: black !important;
+  color: #fff !important;
+}
+#portfolio .filter {
+  margin: 0 5px;
+  border-radius: 0;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 20px;
+  padding: 8px 20px;
+  background: #f3f3f3;
+  transition: 0s all;
+}
+#portfolio .filter:hover {
+  background: black !important;
+  color: #fff !important;
+}
+#portfolio .btn-check:focus+.btn, .btn:focus {
+  box-shadow: none;
+}
+/* end portrodio */
+/* promotions */
+#promotions {
+  margin-top: 95px;
+  padding: 75px 60px;
+  background: #333;
+}
+#promotions .title {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 54px;
+  text-align: center;
+  color: #fff;
+}
+/* end promotions */

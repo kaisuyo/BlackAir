@@ -92,6 +92,33 @@ window.onload = () => {
   $("#our-team .left").on("click", () => {
     ourTeamPrev.click();
   });
+
+  // isotope
+  $('.grid').isotope({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    filter: '*',
+    masonry: {
+      columnWidth: '.grid-item'
+    }
+  });
+  $('.filter').toArray().forEach( tag => {
+    $(tag).on('click', () => {
+      $('.filter.active').removeClass('active');
+      $(tag).addClass('active');
+      let className = `.${$(tag).html().toLowerCase()}`;
+      if (className == '.all') className = '*';
+      $('.grid').isotope({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        filter: className,
+        masonry: {
+          columnWidth: '.grid-item'
+        }
+      });
+    })
+  })
+  // end isotope
 };
 
 function parallax(id) {
