@@ -13,9 +13,6 @@ window.onload = () => {
   });
   
   // banner
-  // setInterval( () => {
-  //   $('#mark-banner').css('animation-delay', "1000ms");
-  // }, 8000);
   // Params
   let mainSliderSelector = ".main-slider",
     interleaveOffset = 0.5;
@@ -78,7 +75,8 @@ window.onload = () => {
   });
 
   window.onscroll = () => {
-    $('#banner .parallax').css("transform", `translateY(${window.scrollY*0.5}px)`);
+    parallax('banner');
+    parallax('excellence');
   };
 
   // end banner
@@ -94,6 +92,26 @@ window.onload = () => {
   $("#our-team .left").on("click", () => {
     ourTeamPrev.click();
   });
-  // ourTeamNext
-  // end our team
 };
+
+function parallax(id) {
+  $(`#${id} .parallax`).css("transform", `translateY(calc(${(window.scrollY - $('#'+id).offset().top + Number($('#'+id).css('margin-top').replace('px', '')))*0.5}px))`);
+}
+
+(() => {
+  'use strict';
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation');
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
