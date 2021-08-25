@@ -136,6 +136,10 @@
   width: 46px;
   height: 46px;
 }
+.btn-arrow-media-size {
+  width: 70px;
+  height: 70px;
+}
 .btn-arrow-big-size {
   width: 88px;
   height: 88px;
@@ -543,14 +547,38 @@
 /* end portrodio */
 /* promotions */
 #promotions {
-  margin-top: 95px;
+  padding-top: 95px;
+}
+#promotions .inner-promorions {
+  background-color: #333;
   padding: 75px 60px;
-  background: #333;
 }
 #promotions .title {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 54px;
   text-align: center;
   color: #fff;
+  margin-bottom: 50px;
+}
+#promotions .wrap-description {
+  background: #fff;
+  padding: 40px;
+  padding-right: 4px;
+}
+
+#promotions .carousel-item .title {
+  margin-bottom: 20px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 30px;
+  line-height: 32px;
+  color: #333;
+  text-align: left;
+}
+#promotions .carousel-item .content {
+  padding: 0 0 0 4px;
+  color: #333;
+  line-height: 24px;
+  font-size: 15px;
+  color: #333;
 }
 /* end promotions */

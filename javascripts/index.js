@@ -129,6 +129,15 @@ window.onload = () => {
     enableScroll();
   });
   // end modal
+
+  // promotion
+  $('#promotions .left').on('click', () => {
+    $('#promotions .carousel-control-prev').click();
+  });
+  $('#promotions .right').on('click', () => {
+    $('#promotions .carousel-control-next').click();
+  });
+  // end promotion
 };
 
 function parallax(id) {
@@ -220,7 +229,6 @@ function modalSlide() {
   let tagList = $('.inner-custom-modal').toArray();
   list.forEach( (tag, index) => {
     $('.main-slide').toArray().forEach( tag => {$(tag).removeClass('main-slide')});
-    $(tag).off();
     $(tag).on('click', () => {
       disableScroll();
       clearAnimarionportfolio();
@@ -262,6 +270,7 @@ function modalSlide() {
     });
   });
 }
+
 function clearAnimarionportfolio() {
   $('.leftIn').toArray().forEach( tag => {$(tag).removeClass('leftIn')});
   $('.leftOut').toArray().forEach( tag => {$(tag).removeClass('leftOut')});
