@@ -128,6 +128,10 @@
   background: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
+.btn-arrow-small-size {
+  width: 30px;
+  height: 30px;
+}
 .btn-arrow-normal-size {
   width: 46px;
   height: 46px;
@@ -135,6 +139,26 @@
 .btn-arrow-big-size {
   width: 88px;
   height: 88px;
+}
+
+.btn-arrow-round {
+  border-radius: 50%;
+  box-shadow: 0px 0px 1px 2px #fff inset;
+}
+.btn-arrow-close:before, 
+.btn-arrow-close:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 50%;
+  background-color: #F0F0F0;
+  transform: rotate(45deg) translate(-50%, -50%);
+  transform-origin: top left;
+  content: '';
+}
+.btn-arrow-close:after {
+  transform: rotate(-45deg) translate(-50%, -50%);
 }
 
 .btn-arrow-left::after {
@@ -377,6 +401,145 @@
 #portfolio .btn-check:focus+.btn, .btn:focus {
   box-shadow: none;
 }
+
+#portfolio .card-body {
+  background: rgba(0, 0, 0, 0.7);
+  transition: all linear 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+#portfolio .card:hover .card-body {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+}
+#portfolio .card-title {
+  font-size: 36px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+/* modal */
+#overlay-portfolio:checked ~ .custom-modal {
+  opacity: 1;
+  visibility: visible;
+}
+#overlay-portfolio:checked ~ .custom-modal .main-slide {
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom-modal {
+  position: fixed;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: all linear 0.3s;
+}
+
+.inner-custom-modal {
+  position: absolute;
+  background: #f3f3f3;
+  border-radius: 4px;
+  padding: 15px;
+  max-height: 95vh;
+  opacity: 0;
+  transition: all linear 0.3s;
+  visibility: hidden;
+}
+.inner-custom-modal img {
+  max-height: calc(95vh - 30px) !important;
+}
+
+.custom-modal .left, 
+.custom-modal .right {
+  position: absolute;
+  width: 50%;
+  top: 15px;
+  bottom: 15px;
+  cursor: pointer;
+}
+.custom-modal .left {
+  left: 15px;
+}
+.custom-modal .right {
+  right: 15px;
+}
+.custom-modal .btn-arrow-close:hover {
+  background: #333;
+}
+.custom-modal .btn-arrow::after {
+  border-width: 3px;
+}
+
+@keyframes rightIn {
+  from {
+    transform: translateX(50%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes rightOut {
+  from {
+    visibility: visible;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+@keyframes leftIn {
+  from {
+    visibility: hidden;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes leftOut {
+  from {
+    visibility: visible;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+}
+.rightIn {
+  animation: 0.3s rightIn linear forwards;
+}
+.rightOut {
+  animation: 0.3s rightOut linear forwards;
+}
+.leftIn {
+  animation: 0.3s leftIn linear forwards;
+}
+.leftOut {
+  animation: 0.3s leftOut linear forwards;
+}
+/* end modal */
 /* end portrodio */
 /* promotions */
 #promotions {
