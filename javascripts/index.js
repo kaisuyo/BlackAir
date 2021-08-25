@@ -138,6 +138,15 @@ window.onload = () => {
     $('#promotions .carousel-control-next').click();
   });
   // end promotion
+
+  // testimonials
+  $('#testimonials .left').on('click', () => {
+    $('.carousel-control-prev').click();
+  });
+  $('#testimonials .right').on('click', () => {
+    $('.carousel-control-next').click();
+  });
+  // end testimonials
 };
 
 function parallax(id) {

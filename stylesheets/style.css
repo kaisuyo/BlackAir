@@ -3,6 +3,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #333;
 }
 
 :root {
@@ -551,7 +553,7 @@
 }
 #promotions .inner-promorions {
   background-color: #333;
-  padding: 75px 60px;
+  padding: 75px 60px 110px;
 }
 #promotions .title {
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -582,3 +584,73 @@
   color: #333;
 }
 /* end promotions */
+
+/* showreel */
+#showreel {
+  padding-top: 95px;
+  margin-bottom: 100px;
+}
+#showreel .title {
+  border-bottom: 15px;
+  font-size: 54px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  line-height: 54px;
+}
+/* end showreel */
+
+/* testimonials */
+#testimonials {
+  padding-top: 95px;
+  margin-bottom: 100px;
+}
+.inner-testimonials {
+  padding: 60px 70px 75px;
+  background: #f3f3f3;
+}
+.inner-testimonials .title {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 54px;
+  margin-bottom: 45px;
+  text-align: center;
+}
+.inner-testimonials .info {
+  padding: 4%;
+  background: #fff;
+  margin-right: 46px;
+}
+.inner-testimonials .job {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+.inner-testimonials .specific {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  line-height: 20px;
+  font-weight: 200;
+  color: #000;
+  font-size: 20px;
+  margin: 5px 0 15px;
+}
+.inner-testimonials .descript {
+  line-height: 24px;
+}
+/* end testimonials */
+
+/* contact */
+#contact {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-image: url('../images/contact/footerbg.jpg');
+}
+#contact .title {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 54px;
+  margin-bottom: 25px;
+}
+#contact .contact-info {
+  padding: 54px 0px 54px 20px;
+}
+#contact .social-icon {
+  margin-top: 20px;
+}
+/* end contact */
