@@ -48,18 +48,12 @@ html {
   width: 0px;
   bottom: 0;
   background: rgba(255, 255, 255, 0.5);
-  animation: 8.8s linear markRun infinite;
 }
-
-@keyframes markRun {
-  0% {
+@keyframes widthChange {
+  form {
     width: 0;
-    visibility: visible;
   }
-  90.901% {
-    width: 100%;
-  }
-  100% {
+  to {
     width: 100%;
   }
 }
@@ -177,10 +171,10 @@ html {
   transform: translate(-75%, -50%) rotate(-45deg) !important;
 }
 .btn-arrow-up::after {
-  transform: translate(-50%, -25%) rotate(45deg) !important;
+  transform: translate(-50%, -25%) rotate(-135deg) !important;
 }
 .btn-arrow-down::after {
-  transform: translate(-50%, -75%) rotate(-135deg) !important;
+  transform: translate(-50%, -75%) rotate(45deg) !important;
 }
 /* end arrow  button*/
 
@@ -684,4 +678,33 @@ html {
 .form-control:focus {
   border-color: #fff;
   box-shadow: none;
+}
+
+#scroll-up {
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
+  border: 1px solid #fff;
+  height: 48px;
+  overflow: hidden;
+  background: #000;
+  transition: all linear 0.3s;
+  visibility: hidden;
+}
+#scroll-up:hover {
+  background: #fff;
+  border-color: #000;
+}
+#scroll-up > div {
+  transition: all ease 0.3s;
+}
+#scroll-up:hover > div {
+  transform: translateY(-100%);
+}
+
+#scroll-up > div {
+  background: none;
+}
+#scroll-up .bottom::after {
+  border-color: #000;
 }

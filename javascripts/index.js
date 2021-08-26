@@ -31,6 +31,7 @@ window.onload = () => {
     on: {
       init: function () {
         this.autoplay.stop();
+        $('#mark-banner').css('animation', '8s widthChange linear');
       },
       imagesReady: function () {
         this.el.classList.remove("loading");
@@ -63,15 +64,20 @@ window.onload = () => {
       },
     },
   };
-  new Swiper(mainSliderSelector, mainSliderOptions);
+  let bannerSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
-  let bannerNext = $("#banner .right");
-  let bannerPrev = $("#banner .left");
+  bannerSlider.on('slideChangeTransitionStart', () => {
+    $('#mark-banner').css('animation', '');
+  });
+  bannerSlider.on('slideChangeTransitionEnd', () => {
+    $('#mark-banner').css('animation', '8s widthChange linear');
+  });
+
   $("#sub-banner .right").on("click", () => {
-    bannerNext.click();
+    $("#banner .right").click();
   });
   $("#sub-banner .left").on("click", () => {
-    bannerPrev.click();
+    $("#banner .left").click();
   });
 
   window.onscroll = () => {
@@ -124,11 +130,10 @@ window.onload = () => {
   });
   // end isotope
   
-  // modal
+  // enable scroll bar
   $('#overlay-portfolio').on('input', () => {
     enableScroll();
   });
-  // end modal
 
   // promotion
   $('#promotions .left').on('click', () => {
@@ -147,6 +152,21 @@ window.onload = () => {
     $('.carousel-control-next').click();
   });
   // end testimonials
+
+  // scroll top
+  window.onscroll = () => {
+    if (window.scrollY > 470) {
+      $('#scroll-up').css('visibility', 'visible');
+    } else {
+      $('#scroll-up').css('visibility', 'hidden');
+    }
+  }
+  $('#scroll-up').on('click', () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 };
 
 function parallax(id) {
@@ -162,9 +182,9 @@ function parallax(id) {
   // Loop over them and prevent submission
   Array.prototype.slice.call(forms).forEach((form) => {
     form.addEventListener('submit', (event) => {
-      $('#contact .loading').css('display', 'block');
+      $('#contact .loading').css('visibility', 'visible');
       if (!form.checkValidity()) {
-        $('#contact .loading').css('display', 'none');
+        $('#contact .loading').css('visibility', 'hidden');
         event.preventDefault();
         event.stopPropagation();
       }
