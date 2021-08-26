@@ -162,7 +162,9 @@ function parallax(id) {
   // Loop over them and prevent submission
   Array.prototype.slice.call(forms).forEach((form) => {
     form.addEventListener('submit', (event) => {
+      $('#contact .loading').css('display', 'block');
       if (!form.checkValidity()) {
+        $('#contact .loading').css('display', 'none');
         event.preventDefault();
         event.stopPropagation();
       }
@@ -220,6 +222,7 @@ function enableScroll() {
 // modal slide
 function modalSlide() {
   let list = $('#portfolio .grid-item').toArray().filter( x => $(x).is(':visible'));
+  $('.main-slide').toArray().forEach( tag => {$(tag).removeClass('main-slide')});
   let codeRender = '';
   list.forEach( (tag, index) => {
     codeRender += `
@@ -287,9 +290,4 @@ function clearAnimarionportfolio() {
   $('.rightOut').toArray().forEach( tag => {$(tag).removeClass('rightOut')});
 }
 
-// show modal
-function showModal() {
-
-}
-// end show modal
 // end modal slide

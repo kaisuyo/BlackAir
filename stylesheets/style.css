@@ -2,8 +2,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
   color: #333;
 }
 
@@ -224,7 +227,7 @@
 
 .member-contact a {
   display: block;
-  color: #fff;
+  color: #fff !important;
   border: 1px solid #fff;
   border-radius: 50%;
   font-size: 15px;
@@ -237,7 +240,7 @@
   margin: 0 4px;
 }
 .member-contact a:hover {
-  color: #333;
+  color: #333 !important;
   background: #fff;
 }
 #our-team .swiper-container .swiper-slide {
@@ -653,4 +656,32 @@
 #contact .social-icon {
   margin-top: 20px;
 }
+#contact .social-icon a {
+  color: #333;
+  border-radius: 50%;
+  border: 2px solid #333;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+  line-height: 36px;
+  text-align: center;
+}
+
+#contact .submit {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 22px;
+  border: 1px solid white;
+  font-weight: 200;
+}
+#contact .submit:hover {
+  background: none;
+  color: white;
+}
 /* end contact */
+
+.form-control:focus {
+  border-color: #fff;
+  box-shadow: none;
+}
